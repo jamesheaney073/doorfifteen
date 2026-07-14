@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Door Fifteen | The Way In To Better Software</title>
+<meta name="description" content="Door Fifteen is an independent, AI-native software consultancy headquartered in England. We design and engineer bespoke digital products that deliver measurable value and leave your teams stronger.">
+<style>
+  :root{
+    --ink:#0e1116;
+    --ink-soft:#3d4450;
+    --paper:#ffffff;
+    --paper-warm:#f6f5f1;
+    --line:#e6e4de;
+    --accent:#3b4fe0;
+    --accent-dark:#2536b8;
+    --accent-soft:#eef0fd;
+    --ok:#0f7b5f;
+    --radius:14px;
+    --max:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);background:var(--paper);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  h1,h2,h3,h4{font-weight:700;letter-spacing:-0.02em;line-height:1.12;}
+  h1{font-size:clamp(2.4rem,5.4vw,4rem);}
+  h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:16px;}
+  h3{font-size:1.22rem;margin-bottom:8px;}
+  p{color:var(--ink-soft);}
+  a{color:var(--accent);text-decoration:none;}
+  .eyebrow{
+    display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:18px;
+  }
+  section{padding:84px 0;}
+  .section-warm{background:var(--paper-warm);}
+  .section-dark{background:var(--ink);color:#fff;}
+  .section-dark p{color:#b9c0cc;}
+  .lead{font-size:1.18rem;max-width:46em;}
+  .grid{display:grid;gap:26px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  @media(max-width:900px){.grid-3,.grid-4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:620px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.18rem;color:var(--ink);letter-spacing:-.02em;cursor:pointer;}
+  .logo-mark{
+    width:30px;height:38px;border:2.5px solid var(--ink);border-radius:5px 5px 3px 3px;
+    position:relative;background:#fff;flex-shrink:0;
+  }
+  .logo-mark::after{
+    content:"";position:absolute;right:5px;top:16px;width:5px;height:5px;
+    border-radius:50%;background:var(--accent);
+  }
+  .nav-links{display:flex;gap:6px;align-items:center;list-style:none;}
+  .nav-links a{
+    color:var(--ink-soft);font-weight:600;font-size:.95rem;padding:9px 14px;border-radius:9px;cursor:pointer;
+  }
+  .nav-links a:hover{background:var(--accent-soft);color:var(--accent-dark);}
+  .nav-links a.active{color:var(--accent-dark);background:var(--accent-soft);}
+  .btn{
+    display:inline-block;font-weight:700;font-size:.98rem;padding:13px 24px;border-radius:11px;
+    background:var(--accent);color:#fff !important;border:none;cursor:pointer;transition:background .15s;
+  }
+  .btn:hover{background:var(--accent-dark);}
+  .btn-ghost{background:transparent;color:var(--ink) !important;border:1.5px solid var(--line);}
+  .btn-ghost:hover{background:var(--paper-warm);}
+  .btn-light{background:#fff;color:var(--ink) !important;}
+  .btn-light:hover{background:#e8eafc;}
+  .nav .btn{padding:10px 18px;}
+  @media(max-width:820px){.nav-links{display:none;}}
+  .mobile-toggle{display:none;background:none;border:1.5px solid var(--line);border-radius:9px;padding:8px 12px;font-size:1.05rem;cursor:pointer;}
+  @media(max-width:820px){.mobile-toggle{display:block;}}
+  .mobile-menu{display:none;border-top:1px solid var(--line);padding:10px 28px 18px;background:#fff;}
+  .mobile-menu a{display:block;padding:11px 4px;font-weight:600;color:var(--ink-soft);cursor:pointer;border-bottom:1px solid var(--line);}
+  .mobile-menu.open{display:block;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:104px 0 90px;}
+  .hero h1{max-width:15em;margin-bottom:24px;}
+  .hero .lead{margin-bottom:36px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .accent-word{color:var(--accent);}
+
+  /* ---------- Logo strip ---------- */
+  .trust{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .trust p{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#9aa1ad;text-align:center;margin-bottom:18px;}
+  .logos{display:flex;justify-content:center;gap:42px;flex-wrap:wrap;align-items:center;}
+  .logos span{font-weight:800;font-size:1.05rem;color:#c3c7cf;letter-spacing:.02em;}
+
+  /* ---------- Stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;text-align:left;}
+  @media(max-width:720px){.stats{grid-template-columns:1fr 1fr;}}
+  .stat b{display:block;font-size:2.5rem;font-weight:800;letter-spacing:-.03em;color:var(--ink);}
+  .section-dark .stat b{color:#fff;}
+  .stat span{font-size:.95rem;color:var(--ink-soft);}
+  .section-dark .stat span{color:#b9c0cc;}
+
+  /* ---------- Cards ---------- */
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 28px;transition:transform .15s, box-shadow .15s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(14,17,22,.07);}
+  .card .icon{
+    width:44px;height:44px;border-radius:11px;background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:18px;
+  }
+  .card ul{margin:12px 0 0 18px;color:var(--ink-soft);font-size:.95rem;}
+  .card li{margin-bottom:5px;}
+  .tag{
+    display:inline-block;background:var(--accent-soft);color:var(--accent-dark);
+    font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:99px;margin:0 6px 8px 0;
+  }
+
+  /* ---------- Split ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  @media(max-width:860px){.split{grid-template-columns:1fr;}}
+  .check-list{list-style:none;margin-top:20px;}
+  .check-list li{
+    padding-left:34px;position:relative;margin-bottom:14px;color:var(--ink-soft);
+  }
+  .check-list li::before{
+    content:"✓";position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;
+    background:var(--accent-soft);color:var(--accent-dark);font-weight:800;font-size:.8rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .section-dark .check-list li{color:#b9c0cc;}
+  .section-dark .check-list li::before{background:rgba(255,255,255,.12);color:#fff;}
+
+  /* ---------- Steps ---------- */
+  .step{display:flex;gap:22px;margin-bottom:34px;}
+  .step-num{
+    flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--accent);
+    color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.05rem;
+  }
+
+  /* ---------- Quote ---------- */
+  .quote{
+    border-left:4px solid var(--accent);padding:8px 0 8px 28px;max-width:44em;margin:0 auto;
+  }
+  .quote p{font-size:1.3rem;font-weight:600;color:var(--ink);line-height:1.5;}
+  .quote cite{display:block;margin-top:14px;font-style:normal;color:var(--ink-soft);font-size:.95rem;}
+
+  /* ---------- Case studies ---------- */
+  .case{overflow:hidden;padding:0;display:flex;flex-direction:column;}
+  .case-band{height:10px;background:linear-gradient(90deg,var(--accent),#7c8cf0);}
+  .case-body{padding:28px;flex:1;display:flex;flex-direction:column;}
+  .case .sector{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9aa1ad;margin-bottom:10px;}
+  .case .result{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);}
+  .case .result b{font-size:1.7rem;color:var(--ok);display:block;letter-spacing:-.02em;}
+  .case .result span{font-size:.88rem;color:var(--ink-soft);}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{text-align:center;}
+  .cta-band h2{max-width:20em;margin:0 auto 14px;}
+  .cta-band p{max-width:40em;margin:0 auto 30px;}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+  form .field{margin-bottom:18px;}
+  label{display:block;font-weight:700;font-size:.9rem;margin-bottom:7px;}
+  input,textarea,select{
+    width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:10px;
+    font:inherit;color:var(--ink);background:#fff;
+  }
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);}
+  .office{padding:20px 0;border-bottom:1px solid var(--line);}
+  .office b{display:block;font-size:1.05rem;margin-bottom:3px;}
+  .office span{color:var(--ink-soft);font-size:.95rem;}
+  .form-note{font-size:.85rem;color:#9aa1ad;margin-top:10px;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:#b9c0cc;padding:56px 0 36px;font-size:.93rem;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px;}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  footer h4{color:#fff;font-size:.95rem;margin-bottom:14px;}
+  footer a{display:block;color:#b9c0cc;margin-bottom:9px;cursor:pointer;}
+  footer a:hover{color:#fff;}
+  .foot-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem;color:#fff;margin-bottom:14px;}
+  .foot-logo .logo-mark{border-color:#fff;background:transparent;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;font-size:.83rem;color:#8b93a1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  /* ---------- Page switching ---------- */
+  .page{display:none;}
+  .page.active{display:block;animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  .page-hero{padding:84px 0 60px;background:var(--paper-warm);border-bottom:1px solid var(--line);}
+  .page-hero h1{font-size:clamp(2.1rem,4.5vw,3.2rem);max-width:18em;margin-bottom:18px;}
+  .page-hero .lead{max-width:44em;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo" onclick="go('home')"><span class="logo-mark"></span>Door Fifteen</div>
+    <ul class="nav-links">
+      <li><a data-nav="home" onclick="go('home')" class="active">Home</a></li>
+      <li><a data-nav="services" onclick="go('services')">Services</a></li>
+      <li><a data-nav="approach" onclick="go('approach')">Our Approach</a></li>
+      <li><a data-nav="work" onclick="go('work')">Our Work</a></li>
+      <li><a class="btn" onclick="go('contact')" style="margin-left:8px;">Start a conversation</a></li>
+    </ul>
+    <button class="mobile-toggle" onclick="document.getElementById('mm').classList.toggle('open')">☰ Menu</button>
+  </div>
+  <nav class="mobile-menu" id="mm">
+    <a onclick="go('home')">Home</a>
+    <a onclick="go('services')">Services</a>
+    <a onclick="go('approach')">Our Approach</a>
+    <a onclick="go('work')">Our Work</a>
+    <a onclick="go('contact')">Start a conversation</a>
+  </nav>
+</header>
+
+<!-- ================= PAGE 1 : HOME ================= -->
+<main class="page active" id="page-home">
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Independent · AI-Native · Made in England</span>
+      <h1>Great software, delivered <span class="accent-word">faster</span>. Built to last.</h1>
+      <p class="lead">Door Fifteen is an independent software consultancy for ambitious organisations. We design and engineer bespoke digital products that create measurable value, embedding AI into every aspect of delivery, and leaving your teams stronger than we found them.</p>
+      <div class="hero-ctas">
+        <a class="btn" onclick="go('contact')">Start a conversation</a>
+        <a class="btn btn-ghost" onclick="go('work')">See our work</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap">
+      <p>Trusted by ambitious organisations across regulated industries</p>
+      <div class="logos">
+        <span>CLIENT ONE</span><span>CLIENT TWO</span><span>CLIENT THREE</span><span>CLIENT FOUR</span><span>CLIENT FIVE</span><span>CLIENT SIX</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Why Door Fifteen</span>
+      <h2>Technology is our how. People are our why.</h2>
+      <p class="lead" style="margin-bottom:44px;">For ambitious enterprises and scale-ups: we combine world-class engineering, industry expertise and a people-centric mindset to harness technology for meaningful change, delivering the most challenging projects with a minimum of fuss.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon">🚀</div>
+          <h3>Build the right thing, the right way</h3>
+          <p>Human-centred product delivery from vision to launch: multidisciplinary teams take you from idea to a digital product customers love in as little as 100 days, without compromising on quality or safety.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧭</div>
+          <h3>Modernise with confidence</h3>
+          <p>We transform legacy technology and simplify technical architecture, delivering fully-compliant, best-in-class solutions on time and within budget, with uptime and reliability assured.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🌱</div>
+          <h3>Grow your own capability</h3>
+          <p>We work as one team for the long term, coaching and upskilling your people as we go, so you close the digital skills gap and keep shipping long after we leave. You keep the IP, the codebase, and the savings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <span class="eyebrow">AI-Native Delivery</span>
+          <h2>Transforming businesses with intelligence.</h2>
+          <p>By embedding AI into every aspect of delivery, we redefine how organisations drive efficiency. Our AI-native delivery framework pairs cutting-edge technology with deep subject matter expertise, enabling your teams to ship faster, with continuous improvement and scalable operations built in.</p>
+          <ul class="check-list">
+            <li>Custom AI designed for your business, deployed on your cloud and owned by you</li>
+            <li>Four weeks to working software, with measurable ROI</li>
+            <li>Agentic automation that runs your most expensive operations for a fraction of the cost</li>
+            <li>Citizen- and customer-centred AI, delivered responsibly in regulated environments</li>
+          </ul>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>100</b><span>days from idea to launched product</span></div>
+          <div class="stat"><b>4 wks</b><span>to first working software</span></div>
+          <div class="stat"><b>70%</b><span>lower delivery cost with AI-augmented teams</span></div>
+          <div class="stat"><b>96%</b><span>of clients would recommend us</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-warm">
+    <div class="wrap">
+      <div class="quote">
+        <p>“Door Fifteen are the benchmark every other supplier needs to aspire to. Collaborative, straightforward, and completely focused on real results. They delivered the outcomes on time and within budget.”</p>
+        <cite>Placeholder testimonial · Chief Digital Officer, Client Name</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <span class="eyebrow">Ready when you are</span>
+      <h2>The way in to better software.</h2>
+      <p>Whether you're validating a new product, modernising legacy systems, or scaling an AI capability, open the door and let's talk about the impact you want to make.</p>
+      <a class="btn" onclick="go('contact')">Start a conversation</a>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PAGE 2 : SERVICES ================= -->
+<main class="page" id="page-services">
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Services</span>
+      <h1>A complete software partner, from first idea to ongoing support.</h1>
+      <p class="lead">From initial consultancy and design right through to deployment, optimisation and managed support, our award-winning strategists, designers and engineers unlock new value at every stage.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3>Product Strategy &amp; Design</h3>
+          <p>Identify the right problem to solve and design the right thing. We validate your digital product vision and craft seamless, engaging experiences customers actually want.</p>
+          <ul><li>Discovery &amp; user research</li><li>Product vision &amp; roadmaps</li><li>UX/UI &amp; service design</li></ul>
+        </div>
+        <div class="card">
+          <div class="icon">⚙️</div>
+          <h3>Bespoke Software Engineering</h3>
+          <p>Innovative, bespoke software engineered to drive measurable value, delivered by teams with the deep technical experience to handle the most challenging builds with a minimum of fuss.</p>
+          <ul><li>Full-stack web development</li><li>APIs, middleware &amp; integrations</li><li>Continuous delivery pipelines</li></ul>
+        </div>
+        <div class="card">
+          <div class="icon">🤖</div>
+          <h3>AI &amp; Data</h3>
+          <p>Custom AI agents built for your workflows, deployed on your cloud and owned by you. Mission-critical outcomes from data platforms, machine learning and agentic automation.</p>
+          <ul><li>AI strategy &amp; agentic transformation</li><li>Data engineering &amp; analytics</li><li>ML &amp; intelligent automation</li></ul>
+        </div>
+        <div class="card">
+          <div class="icon">☁️</div>
+          <h3>Cloud &amp; Platform Engineering</h3>
+          <p>Simplify your architecture and construct a future tech roadmap. Cloud-native platforms engineered for scale, security and speed of change.</p>
+          <ul><li>Cloud migration &amp; modernisation</li><li>Platform &amp; DevOps engineering</li><li>Architecture &amp; tech strategy</li></ul>
+        </div>
+        <div class="card">
+          <div class="icon">📱</div>
+          <h3>Mobile &amp; Multi-Platform</h3>
+          <p>Experts in everything mobile: transformational apps and connected experiences that remove complexity across technology stacks and delight users at scale.</p>
+          <ul><li>Native &amp; cross-platform apps</li><li>App strategy &amp; optimisation</li><li>Connected devices &amp; beyond</li></ul>
+        </div>
+        <div class="card">
+          <div class="icon">🛡️</div>
+          <h3>Modernisation &amp; Managed Services</h3>
+          <p>Transform legacy technology and keep it performing. We ensure uptime and reliability with fully-compliant solutions and long-term support partnerships.</p>
+          <ul><li>Legacy modernisation</li><li>Managed services &amp; support</li><li>Quality engineering &amp; testing</li></ul>
+        </div>
+      </div>
+      <div style="margin-top:44px;">
+        <span class="eyebrow">Sector depth</span>
+        <h2 style="font-size:1.5rem;">Deep experience in complex, regulated industries.</h2>
+        <div style="margin-top:14px;">
+          <span class="tag">Financial Services</span><span class="tag">Government &amp; Public Sector</span><span class="tag">Health &amp; Life Sciences</span><span class="tag">Retail &amp; eCommerce</span><span class="tag">Energy &amp; Utilities</span><span class="tag">Travel &amp; Transport</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-warm cta-band">
+    <div class="wrap">
+      <h2>Not sure where to start?</h2>
+      <p>Book a free discovery session and we'll help you identify the right problem to solve, and the fastest, safest route to solving it.</p>
+      <a class="btn" onclick="go('contact')">Book a discovery session</a>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PAGE 3 : APPROACH ================= -->
+<main class="page" id="page-approach">
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Our Approach</span>
+      <h1>A different kind of partnership: one team, working for the long term.</h1>
+      <p class="lead">People-powered transformation with impact beyond the bottom line. We collaborate closely with your organisation, embed alongside your people, and measure ourselves on the outcomes you care about.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <span class="eyebrow">How we work</span>
+          <h2>Fast to value, built to last.</h2>
+          <div style="margin-top:30px;">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div><h3>Discover</h3><p>We start by understanding your business, your users and your industry, identifying the right problem to solve before a line of code is written.</p></div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div><h3>Deliver</h3><p>Embedded, multidisciplinary squads get you to working software in four weeks and a launched product in as little as 100 days, shipping continuously, without compromising quality or safety.</p></div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div><h3>Scale</h3><p>Teams scale up when the work demands more, down when it doesn't. We optimise performance, ensure reliability, and keep improving what we've built together.</p></div>
+            </div>
+            <div class="step" style="margin-bottom:0;">
+              <div class="step-num">4</div>
+              <div><h3>Empower</h3><p>We coach and upskill your people as we go, establishing a digital product culture, so the capability stays with you. You keep the IP, the codebase and the savings.</p></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:22px;">
+            <h3>What makes us different</h3>
+            <ul class="check-list" style="margin-top:16px;">
+              <li><b>Independent.</b> Advice you can trust, free of vendor lock-in or corporate agendas.</li>
+              <li><b>AI-native.</b> AI-augmented delivery in everything we do, not bolted on afterwards.</li>
+              <li><b>Outcome-based.</b> We measure success in your results, not our billable hours.</li>
+              <li><b>Transparent.</b> Straightforward, collaborative, and completely focused on real results.</li>
+              <li><b>Purpose-driven.</b> Technology that improves things for people, places and the planet, with sustainable solutions ready for an ever-evolving world.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Our promise</h3>
+            <p style="margin-top:8px;">Innovation, experience and pragmatism: measurable results with every project. Work of exceptional quality, delivered on time and within budget, by happy, engaged people who are totally committed to your satisfaction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark">
+    <div class="wrap" style="text-align:center;">
+      <span class="eyebrow">Outcomes, not promises</span>
+      <h2>Measurable value, from day one.</h2>
+      <div class="stats" style="margin-top:44px;text-align:left;">
+        <div class="stat"><b>2×</b><span>faster delivery with AI-augmented engineering</span></div>
+        <div class="stat"><b>60%</b><span>reduction in engineering time on modernisation work</span></div>
+        <div class="stat"><b>1/3</b><span>the cost of running expensive manual operations</span></div>
+        <div class="stat"><b>100%</b><span>of the IP and codebase stays with you</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>See how one team could work for you.</h2>
+      <p>Tell us about your biggest challenge and we'll show you how an embedded Door Fifteen squad would tackle it.</p>
+      <a class="btn" onclick="go('contact')">Talk to us</a>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PAGE 4 : WORK ================= -->
+<main class="page" id="page-work">
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Our Work</span>
+      <h1>Digital products that matter, and that customers love.</h1>
+      <p class="lead">We work at the heart of organisations, on the tough, complex challenges that get them closer to their customers. A selection of what we've designed, engineered and scaled together. (Template placeholders. Replace with your own case studies.)</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-3">
+        <div class="card case">
+          <div class="case-band"></div>
+          <div class="case-body">
+            <div class="sector">Retail &amp; eCommerce</div>
+            <h3>Reinventing mobile commerce for a national retailer</h3>
+            <p>A best-in-class mobile experience, engineered from strategy to launch in 100 days, removing complexity across the technology stack and driving loyalty at scale.</p>
+            <div class="result"><b>+38%</b><span>conversion uplift in the first quarter after launch</span></div>
+          </div>
+        </div>
+        <div class="card case">
+          <div class="case-band"></div>
+          <div class="case-body">
+            <div class="sector">Government &amp; Public Sector</div>
+            <h3>A citizen-centred digital service, delivered at national scale</h3>
+            <p>Modernising legacy systems into a cloud-native platform with usability and accessibility at its core, helping a public body make a positive impact through technology, fast.</p>
+            <div class="result"><b>4.2m</b><span>citizens served in year one, on time and within budget</span></div>
+          </div>
+        </div>
+        <div class="card case">
+          <div class="case-band"></div>
+          <div class="case-body">
+            <div class="sector">Financial Services</div>
+            <h3>Agentic AI modernisation for a regulated fintech</h3>
+            <p>Custom AI agents deployed on the client's own cloud, automating their most expensive operations. Fully compliant, fully owned by them, with measurable ROI in weeks.</p>
+            <div class="result"><b>70%</b><span>lower delivery cost; working software in four weeks</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-warm">
+    <div class="wrap">
+      <div class="quote">
+        <p>“They were reliable, they came up with a great solution, and their knowledge was unrivalled. One of the top delivery teams we have ever worked with. World class.”</p>
+        <cite>Placeholder testimonial · Programme Director, Client Name</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Your success story could be next.</h2>
+      <p>Ambitious organisations choose Door Fifteen to deliver lasting business impact. Let's talk about yours.</p>
+      <a class="btn" onclick="go('contact')">Start a conversation</a>
+    </div>
+  </section>
+</main>
+
+<!-- ================= PAGE 5 : CONTACT ================= -->
+<main class="page" id="page-contact">
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h1>Open the door. Let's build something remarkable.</h1>
+      <p class="lead">Tell us about your product, platform or AI ambitions and we'll come back within one working day with clear next steps, usually a free discovery session with our senior team.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap contact-grid">
+      <div>
+        <form onsubmit="event.preventDefault();document.getElementById('sent-note').style.display='block';">
+          <div class="grid grid-2">
+            <div class="field"><label for="name">Name</label><input id="name" type="text" placeholder="Your name"></div>
+            <div class="field"><label for="company">Company</label><input id="company" type="text" placeholder="Your organisation"></div>
+          </div>
+          <div class="field"><label for="email">Work email</label><input id="email" type="email" placeholder="you@company.co.uk"></div>
+          <div class="field">
+            <label for="topic">How can we help?</label>
+            <select id="topic">
+              <option>Build a new digital product</option>
+              <option>Modernise legacy technology</option>
+              <option>AI &amp; data: strategy or delivery</option>
+              <option>Scale or upskill my team</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field"><label for="msg">Your message</label><textarea id="msg" rows="5" placeholder="Tell us about the impact you want to make…"></textarea></div>
+          <button class="btn" type="submit">Send message</button>
+          <p class="form-note">Template note: wire this form to your CRM, email provider or form service before going live.</p>
+          <p class="form-note" id="sent-note" style="display:none;color:var(--ok);font-weight:700;">✓ This is a template form. Once connected to your email or CRM, messages will arrive there.</p>
+        </form>
+      </div>
+      <div>
+        <h3 style="margin-bottom:6px;">Offices</h3>
+        <p style="font-size:.95rem;">Proudly headquartered in England, working with clients everywhere.</p>
+        <div class="office"><b>London</b><span>1 Example Street, London EC1A 1AA (placeholder)</span></div>
+        <div class="office"><b>Manchester</b><span>2 Example Square, Manchester M1 1AA (placeholder)</span></div>
+        <div class="office"><b>Newcastle</b><span>3 Example Quay, Newcastle NE1 1AA (placeholder)</span></div>
+        <div style="padding-top:22px;">
+          <b>General enquiries</b><br>
+          <a href="mailto:hello@doorfifteen.com">hello@doorfifteen.com</a> (placeholder)<br>
+          <a href="tel:+440000000000">+44 (0)00 0000 0000</a> (placeholder)
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><span class="logo-mark"></span>Door Fifteen</div>
+        <p style="max-width:26em;">An independent, AI-native software consultancy. Great software, delivered faster. Built to last.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a onclick="go('home')">Home</a>
+        <a onclick="go('approach')">Our Approach</a>
+        <a onclick="go('work')">Our Work</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a onclick="go('services')">Product &amp; Design</a>
+        <a onclick="go('services')">Engineering</a>
+        <a onclick="go('services')">AI &amp; Data</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a onclick="go('contact')">Contact us</a>
+        <a href="mailto:hello@doorfifteen.com">hello@doorfifteen.com</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Door Fifteen Ltd. Registered in England &amp; Wales (placeholder).</span>
+      <span>Privacy · Terms · Accessibility (placeholder links)</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function go(page){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('page-'+page).classList.add('active');
+    document.querySelectorAll('[data-nav]').forEach(a=>{
+      a.classList.toggle('active', a.getAttribute('data-nav')===page);
+    });
+    document.getElementById('mm').classList.remove('open');
+    window.scrollTo({top:0,behavior:'instant'});
+    if(history.replaceState){history.replaceState(null,'','#'+page);}
+  }
+  // Deep-link support: open #services etc. directly
+  (function(){
+    var h=(location.hash||'').replace('#','');
+    if(h && document.getElementById('page-'+h)){go(h);}
+  })();
+</script>
+</body>
+</html>
