@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Door Fifteen | The Way In To Better Software</title>
 <meta name="description" content="Door Fifteen is an independent, AI-native software consultancy headquartered in England. We aim to design and engineer bespoke digital products that create meaningful value and leave your teams stronger.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
   :root{
@@ -536,8 +540,11 @@
     </div>
   </div>
 
-  <!-- TODO before launch: hello@doorfifteen.com is not yet a live inbox — set up hosting/forwarding for it.
-       Form submissions currently route to hello@speccheck.com (worker/src/contact.js TO_ADDRESS) until then. -->
+  <!-- TODO: hello@doorfifteen.com mailto links were removed site-wide since that inbox doesn't exist yet
+       (form submissions route to hello@speccheck.com via worker/src/contact.js TO_ADDRESS in the meantime).
+       To make hello@doorfifteen.com real: easiest is free email forwarding (e.g. ImprovMX) — sign up, add
+       the MX/TXT records it gives you via Netlify's DNS panel for doorfifteen.com, point it at a real inbox,
+       then re-add the mailto links here and in the footer, and switch TO_ADDRESS in the worker. -->
   <section>
     <div class="wrap contact-grid">
       <div>
@@ -571,11 +578,7 @@
       </div>
       <div>
         <h3 style="margin-bottom:6px;">Get in touch</h3>
-        <p style="font-size:.95rem;">Based in England, working with clients everywhere.</p>
-        <div style="padding-top:22px;">
-          <b>General enquiries</b><br>
-          <a href="mailto:hello@doorfifteen.com">hello@doorfifteen.com</a>
-        </div>
+        <p style="font-size:.95rem;">Based in England, working with clients everywhere. Send us a message and we'll reply directly to your email address.</p>
       </div>
     </div>
   </section>
@@ -603,7 +606,6 @@
       <div>
         <h4>Get in touch</h4>
         <a onclick="go('contact')">Contact us</a>
-        <a href="mailto:hello@doorfifteen.com">hello@doorfifteen.com</a>
       </div>
     </div>
     <div class="foot-bottom">
@@ -661,7 +663,7 @@
         })
         .then(function(result){
           if(!result.res.ok || !result.data.ok){
-            throw new Error(result.data.error || "Something went wrong — please email hello@doorfifteen.com directly.");
+            throw new Error(result.data.error || "Something went wrong — please try again in a moment.");
           }
           contactForm.reset();
           contactForm.hidden = true;

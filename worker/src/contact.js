@@ -154,7 +154,7 @@ export default {
 
     if (!internalRes.ok || !replyRes.ok) {
       return jsonResponse(
-        { ok: false, error: 'Could not send your message right now. Please email hello@doorfifteen.com directly.' },
+        { ok: false, error: 'Could not send your message right now. Please try again in a moment.' },
         502,
         cors
       );
