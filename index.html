@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Door Fifteen | The Way In To Better Software</title>
-<meta name="description" content="Door Fifteen is an independent, AI-native software consultancy headquartered in England. We design and engineer bespoke digital products that deliver measurable value and leave your teams stronger.">
+<meta name="description" content="Door Fifteen is an independent, AI-native software consultancy headquartered in England. We aim to design and engineer bespoke digital products that create meaningful value and leave your teams stronger.">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
   :root{
     --ink:#0e1116;
@@ -178,10 +179,14 @@
     font:inherit;color:var(--ink);background:#fff;
   }
   input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);}
-  .office{padding:20px 0;border-bottom:1px solid var(--line);}
-  .office b{display:block;font-size:1.05rem;margin-bottom:3px;}
-  .office span{color:var(--ink-soft);font-size:.95rem;}
   .form-note{font-size:.85rem;color:#9aa1ad;margin-top:10px;}
+  .hp-field{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;}
+  .cf-turnstile{margin-top:18px;}
+  .form-status{margin-top:14px;font-size:.9rem;font-weight:600;}
+  .form-status.success{color:var(--ok);}
+  .form-status.error{color:#c0392b;}
+  .form-success{background:var(--paper-warm);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;}
+  .form-success h3{margin-bottom:6px;}
 
   /* ---------- Footer ---------- */
   footer{background:var(--ink);color:#b9c0cc;padding:56px 0 36px;font-size:.93rem;}
@@ -231,8 +236,8 @@
   <section class="hero">
     <div class="wrap">
       <span class="eyebrow">Independent · AI-Native · Made in England</span>
-      <h1>Great software, delivered <span class="accent-word">faster</span>. Built to last.</h1>
-      <p class="lead">Door Fifteen is an independent software consultancy for ambitious organisations. We design and engineer bespoke digital products that create measurable value, embedding AI into every aspect of delivery, and leaving your teams stronger than we found them.</p>
+      <h1>Great software, delivered <span class="accent-word">with care</span>. Built to last.</h1>
+      <p class="lead">Door Fifteen is an independent software consultancy for ambitious organisations. We aim to design and engineer bespoke digital products that create meaningful value, backed by deep AI expertise we apply wherever it genuinely helps, with a commitment to leaving your teams stronger than we found them.</p>
       <div class="hero-ctas">
         <a class="btn" onclick="go('contact')">Start a conversation</a>
         <a class="btn btn-ghost" onclick="go('work')">See our work</a>
@@ -240,30 +245,21 @@
     </div>
   </section>
 
-  <div class="trust">
-    <div class="wrap">
-      <p>Trusted by ambitious organisations across regulated industries</p>
-      <div class="logos">
-        <span>CLIENT ONE</span><span>CLIENT TWO</span><span>CLIENT THREE</span><span>CLIENT FOUR</span><span>CLIENT FIVE</span><span>CLIENT SIX</span>
-      </div>
-    </div>
-  </div>
-
   <section>
     <div class="wrap">
       <span class="eyebrow">Why Door Fifteen</span>
       <h2>Technology is our how. People are our why.</h2>
-      <p class="lead" style="margin-bottom:44px;">For ambitious enterprises and scale-ups: we combine world-class engineering, industry expertise and a people-centric mindset to harness technology for meaningful change, delivering the most challenging projects with a minimum of fuss.</p>
+      <p class="lead" style="margin-bottom:44px;">For ambitious enterprises and scale-ups: we combine experienced engineering, industry expertise and a people-centric mindset to harness technology for meaningful change. Our team's engineering experience spans some of the most technically demanding environments, and we aim to bring that same rigour to even the most challenging projects, with a minimum of fuss.</p>
       <div class="grid grid-3">
         <div class="card">
           <div class="icon">🚀</div>
           <h3>Build the right thing, the right way</h3>
-          <p>Human-centred product delivery from vision to launch: multidisciplinary teams take you from idea to a digital product customers love in as little as 100 days, without compromising on quality or safety.</p>
+          <p>Human-centred product delivery from vision to launch: multidisciplinary teams aim to take you from idea to a digital product your customers love, quickly and without compromising on quality or safety.</p>
         </div>
         <div class="card">
           <div class="icon">🧭</div>
           <h3>Modernise with confidence</h3>
-          <p>We transform legacy technology and simplify technical architecture, delivering fully-compliant, best-in-class solutions on time and within budget, with uptime and reliability assured.</p>
+          <p>We transform legacy technology and simplify technical architecture, aiming to deliver fully-compliant solutions on time and within budget, with a focus on uptime and reliability.</p>
         </div>
         <div class="card">
           <div class="icon">🌱</div>
@@ -280,19 +276,19 @@
         <div>
           <span class="eyebrow">AI-Native Delivery</span>
           <h2>Transforming businesses with intelligence.</h2>
-          <p>By embedding AI into every aspect of delivery, we redefine how organisations drive efficiency. Our AI-native delivery framework pairs cutting-edge technology with deep subject matter expertise, enabling your teams to ship faster, with continuous improvement and scalable operations built in.</p>
+          <p>We bring deep AI expertise to bear wherever it genuinely adds value, pairing it with subject matter expertise to help organisations drive new levels of efficiency. Our goal is to help your teams ship faster, with continuous improvement and scalable operations built in — applying AI judiciously, not for its own sake.</p>
           <ul class="check-list">
             <li>Custom AI designed for your business, deployed on your cloud and owned by you</li>
-            <li>Four weeks to working software, with measurable ROI</li>
-            <li>Agentic automation that runs your most expensive operations for a fraction of the cost</li>
+            <li>Working software quickly, with a clear path to ROI</li>
+            <li>Agentic automation aimed at running your most expensive operations at a fraction of the cost</li>
             <li>Citizen- and customer-centred AI, delivered responsibly in regulated environments</li>
           </ul>
         </div>
         <div class="stats">
-          <div class="stat"><b>100</b><span>days from idea to launched product</span></div>
-          <div class="stat"><b>4 wks</b><span>to first working software</span></div>
-          <div class="stat"><b>70%</b><span>lower delivery cost with AI-augmented teams</span></div>
-          <div class="stat"><b>96%</b><span>of clients would recommend us</span></div>
+          <div class="stat"><b>Fast</b><span>time from idea to launched product</span></div>
+          <div class="stat"><b>Lean</b><span>time to first working software</span></div>
+          <div class="stat"><b>Efficient</b><span>lower delivery cost with AI-augmented teams</span></div>
+          <div class="stat"><b>Committed</b><span>to earning every client's recommendation</span></div>
         </div>
       </div>
     </div>
@@ -301,8 +297,8 @@
   <section class="section-warm">
     <div class="wrap">
       <div class="quote">
-        <p>“Door Fifteen are the benchmark every other supplier needs to aspire to. Collaborative, straightforward, and completely focused on real results. They delivered the outcomes on time and within budget.”</p>
-        <cite>Placeholder testimonial · Chief Digital Officer, Client Name</cite>
+        <p>“We aim to be the partner every client can rely on: collaborative, straightforward, and completely focused on real outcomes — delivered on time and within budget.”</p>
+        <cite>— Door Fifteen</cite>
       </div>
     </div>
   </section>
@@ -323,7 +319,7 @@
     <div class="wrap">
       <span class="eyebrow">Services</span>
       <h1>A complete software partner, from first idea to ongoing support.</h1>
-      <p class="lead">From initial consultancy and design right through to deployment, optimisation and managed support, our award-winning strategists, designers and engineers unlock new value at every stage.</p>
+      <p class="lead">From initial consultancy and design right through to deployment, optimisation and managed support, our strategists, designers and engineers aim to unlock new value at every stage.</p>
     </div>
   </div>
 
@@ -333,13 +329,13 @@
         <div class="card">
           <div class="icon">🎯</div>
           <h3>Product Strategy &amp; Design</h3>
-          <p>Identify the right problem to solve and design the right thing. We validate your digital product vision and craft seamless, engaging experiences customers actually want.</p>
+          <p>Identify the right problem to solve and design the right thing. We validate your digital product vision and craft seamless, engaging experiences designed around what your customers actually want.</p>
           <ul><li>Discovery &amp; user research</li><li>Product vision &amp; roadmaps</li><li>UX/UI &amp; service design</li></ul>
         </div>
         <div class="card">
           <div class="icon">⚙️</div>
           <h3>Bespoke Software Engineering</h3>
-          <p>Innovative, bespoke software engineered to drive measurable value, delivered by teams with the deep technical experience to handle the most challenging builds with a minimum of fuss.</p>
+          <p>Innovative, bespoke software engineered to create meaningful value, delivered by teams with deep technical experience who aim to handle even the most challenging builds with a minimum of fuss.</p>
           <ul><li>Full-stack web development</li><li>APIs, middleware &amp; integrations</li><li>Continuous delivery pipelines</li></ul>
         </div>
         <div class="card">
@@ -357,21 +353,21 @@
         <div class="card">
           <div class="icon">📱</div>
           <h3>Mobile &amp; Multi-Platform</h3>
-          <p>Experts in everything mobile: transformational apps and connected experiences that remove complexity across technology stacks and delight users at scale.</p>
+          <p>Experts in everything mobile: transformational apps and connected experiences designed to remove complexity across technology stacks and delight users at scale.</p>
           <ul><li>Native &amp; cross-platform apps</li><li>App strategy &amp; optimisation</li><li>Connected devices &amp; beyond</li></ul>
         </div>
         <div class="card">
           <div class="icon">🛡️</div>
           <h3>Modernisation &amp; Managed Services</h3>
-          <p>Transform legacy technology and keep it performing. We ensure uptime and reliability with fully-compliant solutions and long-term support partnerships.</p>
+          <p>Transform legacy technology and keep it performing. We aim to ensure uptime and reliability with fully-compliant solutions and long-term support partnerships.</p>
           <ul><li>Legacy modernisation</li><li>Managed services &amp; support</li><li>Quality engineering &amp; testing</li></ul>
         </div>
       </div>
       <div style="margin-top:44px;">
-        <span class="eyebrow">Sector depth</span>
-        <h2 style="font-size:1.5rem;">Deep experience in complex, regulated industries.</h2>
+        <span class="eyebrow">Technical depth</span>
+        <h2 style="font-size:1.5rem;">Deep experience with complex, engineering-led products.</h2>
         <div style="margin-top:14px;">
-          <span class="tag">Financial Services</span><span class="tag">Government &amp; Public Sector</span><span class="tag">Health &amp; Life Sciences</span><span class="tag">Retail &amp; eCommerce</span><span class="tag">Energy &amp; Utilities</span><span class="tag">Travel &amp; Transport</span>
+          <span class="tag">Safety-Critical Systems</span><span class="tag">Complex Product Engineering</span><span class="tag">Legacy Modernisation</span><span class="tag">Embedded &amp; Connected Devices</span><span class="tag">Regulated &amp; Compliance-Heavy Environments</span><span class="tag">Mission-Critical Software</span>
         </div>
       </div>
     </div>
@@ -380,7 +376,7 @@
   <section class="section-warm cta-band">
     <div class="wrap">
       <h2>Not sure where to start?</h2>
-      <p>Book a free discovery session and we'll help you identify the right problem to solve, and the fastest, safest route to solving it.</p>
+      <p>Book a free discovery session and we'll help you identify the right problem to solve, and a fast, safe route to solving it.</p>
       <a class="btn" onclick="go('contact')">Book a discovery session</a>
     </div>
   </section>
@@ -401,7 +397,7 @@
       <div class="split">
         <div>
           <span class="eyebrow">How we work</span>
-          <h2>Fast to value, built to last.</h2>
+          <h2>Designed for fast value. Built to last.</h2>
           <div style="margin-top:30px;">
             <div class="step">
               <div class="step-num">1</div>
@@ -409,11 +405,11 @@
             </div>
             <div class="step">
               <div class="step-num">2</div>
-              <div><h3>Deliver</h3><p>Embedded, multidisciplinary squads get you to working software in four weeks and a launched product in as little as 100 days, shipping continuously, without compromising quality or safety.</p></div>
+              <div><h3>Deliver</h3><p>Embedded, multidisciplinary squads aim to get you to working software quickly, and to a launched product soon after, shipping continuously without compromising quality or safety.</p></div>
             </div>
             <div class="step">
               <div class="step-num">3</div>
-              <div><h3>Scale</h3><p>Teams scale up when the work demands more, down when it doesn't. We optimise performance, ensure reliability, and keep improving what we've built together.</p></div>
+              <div><h3>Scale</h3><p>Teams scale up when the work demands more, down when it doesn't. We aim to optimise performance, improve reliability, and keep refining what we've built together.</p></div>
             </div>
             <div class="step" style="margin-bottom:0;">
               <div class="step-num">4</div>
@@ -426,7 +422,7 @@
             <h3>What makes us different</h3>
             <ul class="check-list" style="margin-top:16px;">
               <li><b>Independent.</b> Advice you can trust, free of vendor lock-in or corporate agendas.</li>
-              <li><b>AI-native.</b> AI-augmented delivery in everything we do, not bolted on afterwards.</li>
+              <li><b>AI-expert.</b> Deep AI capability we apply where it adds real value, not bolted on for its own sake.</li>
               <li><b>Outcome-based.</b> We measure success in your results, not our billable hours.</li>
               <li><b>Transparent.</b> Straightforward, collaborative, and completely focused on real results.</li>
               <li><b>Purpose-driven.</b> Technology that improves things for people, places and the planet, with sustainable solutions ready for an ever-evolving world.</li>
@@ -434,7 +430,7 @@
           </div>
           <div class="card">
             <h3>Our promise</h3>
-            <p style="margin-top:8px;">Innovation, experience and pragmatism: measurable results with every project. Work of exceptional quality, delivered on time and within budget, by happy, engaged people who are totally committed to your satisfaction.</p>
+            <p style="margin-top:8px;">Innovation, experience and pragmatism: we aim for measurable results on every project. Work delivered on time and within budget, by engaged people who are committed to your satisfaction.</p>
           </div>
         </div>
       </div>
@@ -443,13 +439,13 @@
 
   <section class="section-dark">
     <div class="wrap" style="text-align:center;">
-      <span class="eyebrow">Outcomes, not promises</span>
-      <h2>Measurable value, from day one.</h2>
+      <span class="eyebrow">What we aim for</span>
+      <h2>The value we aim to deliver, from day one.</h2>
       <div class="stats" style="margin-top:44px;text-align:left;">
-        <div class="stat"><b>2×</b><span>faster delivery with AI-augmented engineering</span></div>
-        <div class="stat"><b>60%</b><span>reduction in engineering time on modernisation work</span></div>
-        <div class="stat"><b>1/3</b><span>the cost of running expensive manual operations</span></div>
-        <div class="stat"><b>100%</b><span>of the IP and codebase stays with you</span></div>
+        <div class="stat"><b>Faster</b><span>delivery, powered by AI-augmented engineering</span></div>
+        <div class="stat"><b>Leaner</b><span>engineering time on modernisation work</span></div>
+        <div class="stat"><b>Lower cost</b><span>than running expensive manual operations</span></div>
+        <div class="stat"><b>Yours</b><span>all IP and codebase stays with you</span></div>
       </div>
     </div>
   </section>
@@ -468,40 +464,45 @@
   <div class="page-hero">
     <div class="wrap">
       <span class="eyebrow">Our Work</span>
-      <h1>Digital products that matter, and that customers love.</h1>
-      <p class="lead">We work at the heart of organisations, on the tough, complex challenges that get them closer to their customers. A selection of what we've designed, engineered and scaled together. (Template placeholders. Replace with your own case studies.)</p>
+      <h1>Digital products that matter, built around the people who use them.</h1>
+      <p class="lead">We work at the heart of organisations, on the tough, complex challenges that get them closer to their customers. Here's the kind of work we take on — specific case studies will follow as projects complete.</p>
     </div>
   </div>
 
   <section>
     <div class="wrap">
-      <div class="grid grid-3">
-        <div class="card case">
-          <div class="case-band"></div>
-          <div class="case-body">
-            <div class="sector">Retail &amp; eCommerce</div>
-            <h3>Reinventing mobile commerce for a national retailer</h3>
-            <p>A best-in-class mobile experience, engineered from strategy to launch in 100 days, removing complexity across the technology stack and driving loyalty at scale.</p>
-            <div class="result"><b>+38%</b><span>conversion uplift in the first quarter after launch</span></div>
-          </div>
+      <span class="eyebrow">What we take on</span>
+      <h2>The kind of work we do.</h2>
+      <div class="grid grid-3" style="margin-top:34px;">
+        <div class="card">
+          <div class="icon">🧭</div>
+          <h3>Modernising legacy platforms</h3>
+          <p>Replacing ageing, business-critical systems with modern, maintainable platforms, without disrupting the operations that depend on them.</p>
         </div>
-        <div class="card case">
-          <div class="case-band"></div>
-          <div class="case-body">
-            <div class="sector">Government &amp; Public Sector</div>
-            <h3>A citizen-centred digital service, delivered at national scale</h3>
-            <p>Modernising legacy systems into a cloud-native platform with usability and accessibility at its core, helping a public body make a positive impact through technology, fast.</p>
-            <div class="result"><b>4.2m</b><span>citizens served in year one, on time and within budget</span></div>
-          </div>
+        <div class="card">
+          <div class="icon">🛡️</div>
+          <h3>Safety-critical software</h3>
+          <p>Engineering software for environments where reliability isn't optional, and downtime or failure has real consequences.</p>
         </div>
-        <div class="card case">
-          <div class="case-band"></div>
-          <div class="case-body">
-            <div class="sector">Financial Services</div>
-            <h3>Agentic AI modernisation for a regulated fintech</h3>
-            <p>Custom AI agents deployed on the client's own cloud, automating their most expensive operations. Fully compliant, fully owned by them, with measurable ROI in weeks.</p>
-            <div class="result"><b>70%</b><span>lower delivery cost; working software in four weeks</span></div>
-          </div>
+        <div class="card">
+          <div class="icon">🤖</div>
+          <h3>AI embedded in real operations</h3>
+          <p>Applying AI where it genuinely reduces cost or effort, deployed on your infrastructure and owned by you.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔌</div>
+          <h3>Embedded &amp; connected systems</h3>
+          <p>Software that talks to hardware: connected devices, equipment, and the platforms that monitor and control them.</p>
+        </div>
+        <div class="card">
+          <div class="icon">⚖️</div>
+          <h3>Regulated, compliance-heavy delivery</h3>
+          <p>Delivering technology that meets the standards your industry demands, without slowing your business down.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧩</div>
+          <h3>Complex product engineering</h3>
+          <p>Taking ambitious product visions from first idea to something real users depend on, however intricate the build.</p>
         </div>
       </div>
     </div>
@@ -510,8 +511,8 @@
   <section class="section-warm">
     <div class="wrap">
       <div class="quote">
-        <p>“They were reliable, they came up with a great solution, and their knowledge was unrivalled. One of the top delivery teams we have ever worked with. World class.”</p>
-        <cite>Placeholder testimonial · Programme Director, Client Name</cite>
+        <p>“We want every client to say we were reliable, resourceful, and brought knowledge they could depend on — the kind of delivery team that's a genuine pleasure to work with.”</p>
+        <cite>— Door Fifteen</cite>
       </div>
     </div>
   </section>
@@ -519,7 +520,7 @@
   <section class="cta-band">
     <div class="wrap">
       <h2>Your success story could be next.</h2>
-      <p>Ambitious organisations choose Door Fifteen to deliver lasting business impact. Let's talk about yours.</p>
+      <p>We want to help ambitious organisations deliver lasting business impact. Let's talk about yours.</p>
       <a class="btn" onclick="go('contact')">Start a conversation</a>
     </div>
   </section>
@@ -531,22 +532,24 @@
     <div class="wrap">
       <span class="eyebrow">Contact</span>
       <h1>Open the door. Let's build something remarkable.</h1>
-      <p class="lead">Tell us about your product, platform or AI ambitions and we'll come back within one working day with clear next steps, usually a free discovery session with our senior team.</p>
+      <p class="lead">Tell us about your product, platform or AI ambitions and we'll come back with clear next steps, and a free discovery session with our senior team.</p>
     </div>
   </div>
 
+  <!-- TODO before launch: hello@doorfifteen.com is not yet a live inbox — set up hosting/forwarding for it.
+       Form submissions currently route to hello@speccheck.com (worker/src/contact.js TO_ADDRESS) until then. -->
   <section>
     <div class="wrap contact-grid">
       <div>
-        <form onsubmit="event.preventDefault();document.getElementById('sent-note').style.display='block';">
+        <form id="contactForm" action="https://doorfifteen-contact.james-187.workers.dev" method="POST">
           <div class="grid grid-2">
-            <div class="field"><label for="name">Name</label><input id="name" type="text" placeholder="Your name"></div>
-            <div class="field"><label for="company">Company</label><input id="company" type="text" placeholder="Your organisation"></div>
+            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
+            <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization" placeholder="Your organisation"></div>
           </div>
-          <div class="field"><label for="email">Work email</label><input id="email" type="email" placeholder="you@company.co.uk"></div>
+          <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.co.uk" required></div>
           <div class="field">
             <label for="topic">How can we help?</label>
-            <select id="topic">
+            <select id="topic" name="topic">
               <option>Build a new digital product</option>
               <option>Modernise legacy technology</option>
               <option>AI &amp; data: strategy or delivery</option>
@@ -554,22 +557,24 @@
               <option>Something else</option>
             </select>
           </div>
-          <div class="field"><label for="msg">Your message</label><textarea id="msg" rows="5" placeholder="Tell us about the impact you want to make…"></textarea></div>
-          <button class="btn" type="submit">Send message</button>
-          <p class="form-note">Template note: wire this form to your CRM, email provider or form service before going live.</p>
-          <p class="form-note" id="sent-note" style="display:none;color:var(--ok);font-weight:700;">✓ This is a template form. Once connected to your email or CRM, messages will arrive there.</p>
+          <div class="field"><label for="msg">Your message</label><textarea id="msg" name="message" rows="5" placeholder="Tell us about the impact you want to make…" required></textarea></div>
+          <input class="hp-field" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="source_page" id="sourcePage">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAFRMt5i15OY0SI7S"></div>
+          <button class="btn" type="submit" style="margin-top:18px;">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
+        <div class="form-success" id="formSuccess" role="status" hidden>
+          <h3>Thanks for getting in touch.</h3>
+          <p>Your message has been received, and we'll come back to you shortly.</p>
+        </div>
       </div>
       <div>
-        <h3 style="margin-bottom:6px;">Offices</h3>
-        <p style="font-size:.95rem;">Proudly headquartered in England, working with clients everywhere.</p>
-        <div class="office"><b>London</b><span>1 Example Street, London EC1A 1AA (placeholder)</span></div>
-        <div class="office"><b>Manchester</b><span>2 Example Square, Manchester M1 1AA (placeholder)</span></div>
-        <div class="office"><b>Newcastle</b><span>3 Example Quay, Newcastle NE1 1AA (placeholder)</span></div>
+        <h3 style="margin-bottom:6px;">Get in touch</h3>
+        <p style="font-size:.95rem;">Based in England, working with clients everywhere.</p>
         <div style="padding-top:22px;">
           <b>General enquiries</b><br>
-          <a href="mailto:hello@doorfifteen.com">hello@doorfifteen.com</a> (placeholder)<br>
-          <a href="tel:+440000000000">+44 (0)00 0000 0000</a> (placeholder)
+          <a href="mailto:hello@doorfifteen.com">hello@doorfifteen.com</a>
         </div>
       </div>
     </div>
@@ -581,7 +586,7 @@
     <div class="foot-grid">
       <div>
         <div class="foot-logo"><span class="logo-mark"></span>Door Fifteen</div>
-        <p style="max-width:26em;">An independent, AI-native software consultancy. Great software, delivered faster. Built to last.</p>
+        <p style="max-width:26em;">An independent, AI-native software consultancy. Great software, delivered with care. Built to last.</p>
       </div>
       <div>
         <h4>Company</h4>
@@ -602,8 +607,8 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Door Fifteen Ltd. Registered in England &amp; Wales (placeholder).</span>
-      <span>Privacy · Terms · Accessibility (placeholder links)</span>
+      <span>© 2026 Door Fifteen, a trading name of <a href="https://speccheck.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Spec Check Europe Limited</a>.</span>
+      <!-- TODO: add Privacy / Terms / Accessibility links once those pages exist -->
     </div>
   </div>
 </footer>
@@ -623,6 +628,53 @@
   (function(){
     var h=(location.hash||'').replace('#','');
     if(h && document.getElementById('page-'+h)){go(h);}
+  })();
+
+  // Contact form — progressive enhancement over a plain POST to the Cloudflare
+  // Worker at doorfifteen-contact.james-187.workers.dev/ (deployed to
+  // *.workers.dev rather than a doorfifteen.com route, since that domain's
+  // DNS isn't on Cloudflare). On success the form is swapped out for a
+  // thank-you message; on failure it stays put, showing the Worker's
+  // specific error, so the visitor can fix the field and retry.
+  (function(){
+    var contactForm = document.getElementById('contactForm');
+    if(!contactForm) return;
+    var statusEl = contactForm.querySelector('.form-status');
+    var submitBtn = contactForm.querySelector('button[type="submit"]');
+    var successEl = document.getElementById('formSuccess');
+    var sourcePageField = document.getElementById('sourcePage');
+
+    contactForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(sourcePageField) sourcePageField.value = location.href;
+      submitBtn.disabled = true;
+      statusEl.textContent = 'Sending…';
+      statusEl.className = 'form-status';
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' },
+      })
+        .then(function(res){
+          return res.json().catch(function(){ return {}; }).then(function(data){ return { res: res, data: data }; });
+        })
+        .then(function(result){
+          if(!result.res.ok || !result.data.ok){
+            throw new Error(result.data.error || "Something went wrong — please email hello@doorfifteen.com directly.");
+          }
+          contactForm.reset();
+          contactForm.hidden = true;
+          if(successEl) successEl.hidden = false;
+        })
+        .catch(function(err){
+          statusEl.textContent = err.message;
+          statusEl.className = 'form-status error';
+        })
+        .finally(function(){
+          submitBtn.disabled = false;
+        });
+    });
   })();
 </script>
 </body>

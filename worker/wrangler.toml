@@ -1,0 +1,12 @@
+name = "doorfifteen-contact"
+main = "src/contact.js"
+compatibility_date = "2026-08-26"
+
+# No routes: deployed to the default *.workers.dev subdomain rather than a
+# doorfifteen.com zone route, since that domain's DNS isn't on Cloudflare
+# (it's on NS1/GoDaddy, hosted on Netlify). The frontend calls this worker
+# cross-origin; CORS is handled in src/contact.js.
+
+kv_namespaces = [
+  { binding = "ENQUIRY_COUNTER", id = "42af7434bf6042ae9eb3c895d2dea01e" }
+]
