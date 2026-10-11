@@ -38,13 +38,6 @@ function jsonResponse(body, status = 200, extraHeaders = {}) {
   });
 }
 
-async function getNextEnquiryId(env) {
-  const current = await env.ENQUIRY_COUNTER.get('count');
-  const next = (parseInt(current, 10) || 0) + 1;
-  await env.ENQUIRY_COUNTER.put('count', String(next));
-  return next;
-}
-
 export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
@@ -111,15 +104,8 @@ export default {
     const userAgent = request.headers.get('User-Agent') || '';
     const { city, region, country, timezone } = request.cf || {};
 
-    // Sequential per-enquiry ID for the internal team's own reference. KV is
-    // eventually consistent across edge locations, so this can in rare cases
-    // skip or repeat a number under truly concurrent submissions - acceptable
-    // for a low-volume contact form; switch to a Durable Object if that ever
-    // needs to be a hard guarantee.
-    const enquiryId = await getNextEnquiryId(env);
-
-    const subjectBase = `New enquiry #${enquiryId} from ${name} via doorfifteen.com`.replace(/[\r\n]+/g, ' ');
-    const emailData = { enquiryId, name, email, company, message, topic, sourcePage, ip, city, region, country, timezone, userAgent };
+    const subjectBase = `New enquiry from ${name} via doorfifteen.com`.replace(/[\r\n]+/g, ' ');
+    const emailData = { name, email, company, message, topic, sourcePage, ip, city, region, country, timezone, userAgent };
 
     const [internalRes, replyRes] = await Promise.all([
       fetch(RESEND_ENDPOINT, {

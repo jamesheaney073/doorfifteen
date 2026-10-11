@@ -47,9 +47,8 @@ function row(label, value) {
     </tr>`;
 }
 
-function safeFields({ enquiryId, name, email, company, message, topic, sourcePage, ip, city, region, country, timezone, userAgent }) {
+function safeFields({ name, email, company, message, topic, sourcePage, ip, city, region, country, timezone, userAgent }) {
   return {
-    enquiryId: enquiryId ? `#${enquiryId}` : '',
     name: escapeHtml(name),
     email: escapeHtml(email),
     company: company ? escapeHtml(company) : '',
@@ -115,7 +114,6 @@ const INTERNAL_BADGE = `
 export function buildInternalEmailHtml(data) {
   const f = safeFields(data);
   const rows = `
-    ${row('Enquiry ID', f.enquiryId)}
     ${row('Name', f.name)}
     ${row('Email', `<a href="mailto:${f.email}" style="color:${ACCENT}; text-decoration:none;">${f.email}</a>`)}
     ${row('Company', f.company)}
@@ -137,7 +135,6 @@ export function buildInternalEmailHtml(data) {
 export function buildReplyEmailHtml(data) {
   const f = safeFields(data);
   const rows = `
-    ${row('Enquiry ID', f.enquiryId)}
     ${row('Name', f.name)}
     ${row('Email', `<a href="mailto:${f.email}" style="color:${ACCENT}; text-decoration:none;">${f.email}</a>`)}
     ${row('Company', f.company)}
